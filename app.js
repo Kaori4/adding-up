@@ -20,13 +20,11 @@ const rl = readline.createInterface({ input: rs, output: {} }); //上のrsをrea
 // rl.on('line', lineString => {
 // 	const columns = lineString.split(','); //lineStringで与えられた１行を,で分割して配列に
 // 	const year = parseInt(columns[0]); //数値に変換
-// 	const prefrecture = columns[1];
-// 	const popu = parseInt(columns[3]); //数値に変換
+// 	const prefrecture = columns[1]; //都道府県
+// 	const popu = parseInt(columns[3]); //数値に変換 15~19才の人口
 // 	if (year === 2010 || year === 2015) {
-// 		console.log(year);
-// 		console.log(prefrecture);
-// 		console.log(popu);
-// 	}
+// 		console.log(year + " " + prefrecture + " " + popu);
+//	}
 // });
 
 // 実装3 データ（都道府県ごとの変化率）の計算
@@ -58,7 +56,9 @@ rl.on('line', lineString => {
 		prefectureDateMap.set(prefrecture, value);
 	}
 });
+
 //全て行が読み終わった後に実行される
+
 rl.on ('close', () => {
 	// 都道府県ごとの変化率の計算
 	for (let [key, value] of prefectureDateMap) {
